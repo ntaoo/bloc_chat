@@ -1,0 +1,5 @@
+<div>Room: {{room?.name}}</div>
+
+<chat-messages *ngIf="room != null" [roomId]="room.id"></chat-messages>
+
+<a routerLink="/" [routerLinkActive]="'active'">Back</a>

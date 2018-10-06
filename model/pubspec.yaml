@@ -1,0 +1,20 @@
+name: model
+description: A starting point for Dart libraries or applications.
+# version: 1.0.0
+# homepage: https://www.example.com
+# author: Naoto Higuchi <email@example.com>
+
+environment:
+  sdk: '>=2.0.0 <3.0.0'
+
+dependencies:
+  intl: ^0.15.7
+  json_annotation: ^1.2.0
+  meta:
+  rxdart:
+  stream_transform: 0.0.14+1
+
+dev_dependencies:
+  build_runner: ^0.10.0
+  json_serializable: ^1.5.0
+  test: ^1.0.0

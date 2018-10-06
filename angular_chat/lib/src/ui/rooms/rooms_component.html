@@ -1,0 +1,7 @@
+<material-input label="Room name" [(ngModel)]="newRoomName"></material-input>
+
+<material-button raised (trigger)="addRoom()" [disabled]="adding">Add Room</material-button>
+
+<div *ngFor="let room of rooms">
+  Room name: <a [routerLink]="roomPath(room)" [routerLinkActive]="'active'">{{room.name}}</a>
+</div>

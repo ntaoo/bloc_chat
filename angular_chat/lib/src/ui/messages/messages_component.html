@@ -1,0 +1,35 @@
+<div class="messages">
+  <div *ngFor="let message of messages | async" class="message">
+    <div class="main">
+      {{message.content}}
+    </div>
+    <div class="bottom">
+      <div class="time">{{message.createdTime}}</div>
+      <div class="actions" *ngIf="message.isEditable">
+        <material-button icon (trigger)="bloc.startEditingMessage.add(message.id)" materialTooltip="Edit message">
+          <material-icon icon="edit"></material-icon>
+        </material-button>
+        <material-button icon (trigger)="bloc.deleteMessage.add(message.id)" materialTooltip="Delete message">
+          <material-icon icon="delete"></material-icon>
+        </material-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="message-composers-container">
+  <div id="new-message-composer" *ngIf="!isEditingAMessage">
+    <material-input [(ngModel)]="newMessageContent"
+                    (keyup.enter)="bloc.addMessage.add(newMessageContent)"></material-input>
+    <material-button raised (trigger)="bloc.addMessage.add(newMessageContent)">Add</material-button>
+  </div>
+
+  <div id="message-composer" *ngIf="isEditingAMessage">
+    <material-input [(ngModel)]="editingMessageContent"
+                    (keyup.enter)="bloc.updateMessage.add(editingMessageContent)"></material-input>
+    <material-button raised (trigger)="bloc.updateMessage.add(editingMessageContent)">Save</material-button>
+    <material-button icon (trigger)="bloc.cancelEditingMessage.add(null)">
+      <material-icon icon="cancel"></material-icon>
+    </material-button>
+  </div>
+</div>
